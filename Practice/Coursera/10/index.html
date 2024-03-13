@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+  function Collection() {
+    this.items = [];
+
+  }
+
+  Collection.prototype.append = function (item) {
+
+    if (item instanceof Array) {
+      this.items.push(...item);
+    } else if (item instanceof Collection) {
+      this.items = this.items.concat(Collection.prototype.values.call(item));
+    }
+    else this.items.push(item);
+
+
+  };
+  Collection.prototype.values = function () {
+    return this.items;
+  };
+  Collection.prototype.at = function (pos) {
+
+    if (pos > 0) {
+      if (this.items[pos - 1] != undefined) {
+        return this.items[pos - 1]
+      } else return null;
+
+
+    } else return null;
+
+
+  };
+  Collection.prototype.removeAt = function (pos) {
+    if (pos > 0) {
+      var s = this.items.splice(pos - 1, 1);
+      if (s.length === 0) {
+        return false;
+      } else return true;
+    }
+    else {
+      return false;
+    }
+
+  };
+  Collection.prototype.count = function () {
+    return this.items.length;
+  };
+  Collection.from = function (item) {
+    var col = new Collection();
+    col.append(item);
+    return col;
+  };
+
+  var letters = Collection.from(['a', 'b', 'c']);
+  var numbers = new Collection();
+
+  numbers.append(10);
+  numbers.append(20);
+  var items = new Collection();
+  items.append(numbers);
+  items.append(letters);
+  console.log(items);
+
+
+  console.log(letters.removeAt(8));
+  console.log(letters.count());
+</script>
+</body>
+</html>

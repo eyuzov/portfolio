@@ -1,0 +1,493 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
+@import "footer";
+@import "header_nav";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+.container {
+  width: 1140px;
+  padding-left: 100px;
+  padding-right: 100px;
+  margin: 0 auto;
+}
+
+/*********************SECTION START**********************************/
+
+.before_main {
+  background-color: #f8f3f4;
+
+}
+
+.before_main_content {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+  height: 148px;
+}
+
+.before_main h3 {
+  color: #f16d7f;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.breadcrumbs li {
+  display: inline;
+  list-style: none;
+  text-transform: uppercase;
+}
+
+.breadcrumbs li:before {
+  content: ' / ';
+  color: #636363;
+}
+
+.breadcrumbs li:first-child:before {
+  content: '';
+}
+
+.up_page {
+  color: #636363;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 20px;
+  text-align: center;
+}
+
+.curr_page {
+  color: #f16d7f;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: center;
+
+}
+
+/*********************SECTION END**********************************/
+
+/*********************MAIN START**********************************/
+
+.catalog_flex {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+}
+
+/********************SPISOK START********************************/
+
+.spisok {
+  display: block;
+  float: left;
+  margin-right: 20px;
+  margin-top: 60px;
+}
+
+details {
+  text-align: left;
+}
+
+summary {
+  display: flex;
+  color: #6f6e6e;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: left;
+  height: 37px;
+  text-transform: uppercase;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.s1,
+.s2,
+.s3 {
+  display: flex;
+  justify-content: space-between;
+  border-left: 5px solid #ef5b70;
+  border-bottom: 1px solid #6f6e6e;
+  width: 230px;
+  cursor: pointer;
+  padding-left: 10px;
+
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::after {
+  content: '\25bc';
+  padding-right: 0.5em;
+  text-align: left;
+  color: #000;
+}
+
+details[open] > summary::after {
+  content: '\25b2';
+  color: #ef5b70;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: left;
+}
+
+details[open] > summary {
+  color: #ef5b70;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: left;
+}
+
+.list {
+  list-style-type: none;
+  & a {
+    color: #6f6e6e;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 33px;
+    text-align: left;
+    text-decoration: none;
+    &:hover {
+      color: #ef5b70;
+    }
+  }
+}
+
+.list li {
+  margin-left: 15px;
+  &:last-child {
+    margin-bottom: 30px;
+  }
+}
+
+/********************SPISOK END********************************/
+
+/********************CATALOG START********************************/
+
+.catalog {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 70px;
+  & .catalog-filter {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-left: 25px;
+  }
+  & .catalog-items{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 25px;
+  }
+}
+
+
+.catalog_top {
+  display: block;
+  text-align: left;
+  width: 263px;
+  word-spacing: 1px;
+  color: #6f6e6e;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+.catalog_top a {
+  text-decoration: none;
+  text-align: left;
+  width: 263px;
+  word-spacing: 1px;
+  color: #6f6e6e;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+.catalog_top a:hover {
+  color: #ef5b70
+}
+
+.XXS {
+  margin-right: 23px;
+}
+
+.XS,
+.XL {
+  margin-right: 31px;
+}
+
+.S {
+  margin-right: 33px;
+}
+
+.L {
+  margin-right: 41px;
+}
+
+.catalog_top {
+  & h4 {
+    color: #6f6e6e;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: left;
+    text-transform: uppercase;
+    word-spacing: 1px;
+    width: 100%;
+    margin-bottom: 25px;
+  }
+  & .summ {
+    display: flex;
+    justify-content: space-between;
+    & input {
+      border: 0;
+      width: 100%;
+      color: #6f6e6e;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 26px;
+    }
+    & #amount-end {
+      text-align: right;
+    }
+  }
+  & #slider-range {
+    z-index: 0;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    & .ui-slider-range {
+      background-color: #f16d7f;
+      border: 1px solid #f16d7f;
+    }
+    & .ui-state-default {
+      background-color: #f16d7f;
+      border: 1px solid #f16d7f;
+    }
+  }
+}
+
+.sorting_text {
+  display: inline-block;
+  margin: 10px 0 10px 10px;
+  padding-left: 10px;
+  color: #6f6e6e;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: left;
+  word-spacing: 1px;
+  background-color: white;
+}
+
+.sorting {
+  margin: 40px 0 50px 0;
+  background-color: #f3f3f3;
+  color: #6f6e6e;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: left;
+  word-spacing: 1px;
+  width: 100%;
+}
+
+.sort_by {
+  padding-left: 10px;
+  margin-left: 10px;
+  border: 1px solid #ebebeb;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  width: 130px;
+  height: 30px;
+  color: #6f6e6e;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 26px;
+  text-align: left;
+}
+
+.catalog_item {
+  display: block;
+  text-align: left;
+  width: 263px;
+}
+
+.catalog_item img {
+  width: 263px;
+}
+
+.catalog_item h3 {
+  color: #222222;
+  font-size: 13px;
+  font-weight: 400;
+  margin-bottom: 17px;
+  margin-left: 15px;
+  text-transform: uppercase;
+  margin-top: 20px;
+}
+
+.catalog_item h4 {
+  color: #f16d7f;
+  font-size: 16px;
+  font-weight: 700;
+  padding-bottom: 45px;
+  margin-left: 15px;
+}
+
+.hover {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.hover:hover .add_flex {
+  display: flex;
+}
+
+.add_flex {
+  position: absolute;
+  top: 98px;
+  display: none;
+  justify-content: center;
+  width: 263px;
+}
+
+.add {
+  display: flex;
+  padding: 15px;
+  border: 1px solid #fff;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.hover a {
+  text-decoration: none;
+}
+
+.hover:hover {
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+.hover:hover img {
+  filter: brightness(50%);
+}
+
+.pages {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 3px;
+  border: 1px solid #ebebeb;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  width: 261px;
+  height: 44px;
+  margin-left: 25px;
+  margin-bottom: 110px;
+  padding: 0 10px;
+
+}
+
+.pages a {
+  color: #c4c4c4;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 26px;
+  text-align: left;
+  text-decoration: none;
+
+}
+
+.pages a:last-child,
+.pages a:nth-child(2) {
+  color: #ef5b70;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 26px;
+  text-align: left;
+}
+
+.all button {
+
+  border-radius: 3px;
+  border: 1px solid #ef5b70;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  width: 150px;
+  height: 44px;
+  cursor: pointer;
+  color: #ef5b70;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 26px;
+  margin-bottom: 110px;
+}
+
+.all button:hover {
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  background-color: #ef5b70;
+}
+
+/********************CATALOG END********************************/
+
+/*=====================MAIN BOTTOM START=========================*/
+
+.main_bottom {
+  background-color: #222224;
+  height: auto;
+  background-size: cover;
+}
+
+.text_for_customer_flex {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.text_for_customer {
+  padding: 90px 40px 115px;
+}
+
+.text_for_customer h4 {
+  color: #fbfbfb;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  transform: scaleX(1.0017);
+  margin-top: 27px;
+}
+
+.text_for_customer h6 {
+  color: #fbfbfb;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 24px;
+  text-align: center;
+  transform: scaleX(1.0017);
+  margin-top: 20px;
+}
+
+/*=====================MAIN BOTTOM END=========================*/
+
+/*********************MAIN END**********************************/

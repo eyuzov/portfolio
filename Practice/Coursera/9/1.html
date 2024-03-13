@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  var emitter = {
+    arr: [],
+    on: function (event, subscriber, handler) {
+      this.arr.push({event, subscriber, handler});
+      return this;
+    },
+
+    off: function (event, subscriber) {
+      console.log(this.arr);
+      var i = 0;
+      while (this.arr[i] !== undefined) {
+        if (this.arr[i].event === event && this.arr[i].subscriber === subscriber) {
+          this.arr[i].event = "0";
+        }
+        i++;
+      }
+      console.log(this.arr);
+      return this;
+    },
+
+    emit: function (event) {
+      var i = 0;
+      while (this.arr[i] !== undefined) {
+        if (this.arr[i].event === event) {
+          this.arr[i].handler.call(this.arr[i].subscriber);
+        }
+        i++;
+      }
+      return this;
+    }
+  };
+
+  var notifications = {
+    counter: 0,
+    count: function () {
+      this.counter++;
+    }
+  };
+
+  var logger = {
+    logs: []
+  };
+
+  emitter
+    .on('new_notification', notifications, notifications.count)
+    .on('new_notification', logger, function () {
+      this.logs.push('Произошло новое событие new_notification');
+    })
+    .on('new_notification', logger, function () {
+      // this указывает на logger
+      this.logs.push('Добавлена новая нотификация. Количество - ' + notifications.counter);
+    })
+    .emit('new_notification');
+  console.log(notifications);
+  console.log(logger);
+
+  emitter
+    .off('new_notification', logger)
+    .emit('new_notification')
+    .on('new_notification', logger, function () {
+      this.logs.push('Новое событие new_notification!');
+    })
+    .emit('new_notification');
+  console.log(notifications);
+  console.log(logger);
+
+</script>
+</body>
+</html>

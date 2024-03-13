@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/style_blog_details.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="content">
+      <header>
+        <div class="header-left">
+          <img src="img/Logo.svg" alt="" /><span>Interno</span>
+        </div>
+        <div class="header-right">
+          <ul class="header-right__menu">
+            <a href="index.html"><li>Home</li></a>
+            <a href="#"><li>Project</li></a>
+            <a href="blog.html"><li>Blog</li></a>
+          </ul>
+        </div>
+      </header>
+    </div>
+
+    <div class="banner"></div>
+
+    <div class="content">
+      <section class="article_aside">
+        <article>
+          <h1 class="article_title">
+            Let’s Get Solution for Building Construction Work
+          </h1>
+          <img src="img/kitchen_article.png" alt="kitchen photo" />
+          <div class="date_nav">
+            <div class="date">26 December,2022</div>
+            <nav>
+              <a href="#">Interior</a> / <a href="#">Home</a> /
+              <a href="#">Decore</a>
+            </nav>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae
+            turpmaximus.posuere in.Contrary to popular belief.There are many
+            variations of passages of Lorem Ipsum available, but the majority
+            have suffered alteration in some form, by injecthumour, or
+            randomised words which don't look even slightly believable.
+            Embarrassing hidden in the middle of text. All the Lorem Ipsum
+            generators on the Internet tend to repeat predefined chunks as
+            necessary.
+          </p>
+          <div id="app"><shop-item></shop-item></div>
+        </article>
+
+        <aside>
+          <h1 class="aside_title">Tags</h1>
+          <div id="app_buttons">
+            <button class="sort-button" @click="sort('kitchen')">
+              Kitchen
+            </button>
+            <button class="sort-button" @click="sort('bedroom')">
+              Bedroom
+            </button>
+            <button class="sort-button" @click="sort('building')">
+              Building
+            </button>
+            <button class="sort-button" @click="sort('architecture')">
+              Architecture
+            </button>
+            <button class="sort-button" @click="sort('kitchen_planning')">
+              Kitchen Planning
+            </button>
+            <button class="sort-button" @click="sort('bedroom')">
+              Bedroom
+            </button>
+            <button class="sort-button" @click="sort('*')">ALL</button>
+          </div>
+        </aside>
+      </section>
+
+      <footer>
+        <div class="footer_title">
+          <div class="footer_title-wrap">
+            <img src="img/Logo.svg" alt="logo" />
+            <h2>Interno</h2>
+          </div>
+          <p>
+            It is a long established fact that a reader will be distracted
+            lookings.
+          </p>
+        </div>
+        <div class="footer_menu">
+          <h3>Pages</h3>
+          <ul>
+            <li>Home</li>
+            <li>Projects</li>
+            <li>Blog</li>
+          </ul>
+        </div>
+        <div class="footer_contacts">
+          <h3>Contact</h3>
+          <p>
+            55 East Birchwood Ave. Brooklyn, New York 11201 contact@interno.com
+            (123) 456 - 7890
+          </p>
+        </div>
+      </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="item.js"></script>
+    <script src="button.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        methods: {},
+        data: {
+          articleArr: [
+            {
+              imgUrl: "img/article_img1.png",
+              title: "1 Let’s Get Solution For Building Construction Work",
+              date: "26 December,2022",
+              tag: "kitchen",
+            },
+            {
+              imgUrl: "img/article_img2.png",
+              title: "2 Let’s Get Solution For Building Construction Work",
+              date: "26 December,2022",
+              tag: "bedroom",
+            },
+            {
+              imgUrl: "img/article_img3.png",
+              title: "3 Let’s Get Solution For Building Construction Work",
+              date: "26 December,2022",
+              tag: "kitchen",
+            },
+            {
+              imgUrl: "img/article_img1.png",
+              title: "4 Let’s Get Solution For Building Construction Work",
+              date: "26 December,2022",
+              tag: "building",
+            },
+            {
+              imgUrl: "img/article_img2.png",
+              title: "5 Let’s Get Solution For Building Construction Work",
+              date: "26 December,2022",
+              tag: "architecture",
+            },
+            {
+              imgUrl: "img/article_img3.png",
+              title: "6 Let’s Get Solution For Building Construction Work",
+              date: "26 December,2022",
+              tag: "kitchen_planning",
+            },
+            {
+              imgUrl: "img/article_img1.png",
+              title: "7 Let’s Get Solution For Building Construction Work",
+              date: "26 December,2022",
+              tag: "kitchen_planning",
+            },
+          ],
+          tag: "*",
+        },
+
+        computed: {
+          article() {
+            return this.articleArr.filter((element) => {
+              if (element.tag === this.tag) {
+                return element;
+              } else if (this.tag === "*") {
+                return element;
+              }
+            });
+          },
+        },
+      });
+
+      const app_buttons = new Vue({
+        el: "#app_buttons",
+        data: {},
+        methods: {
+          sort(tag) {
+            app.$data.tag = tag;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

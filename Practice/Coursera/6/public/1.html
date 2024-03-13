@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  var book = {};
+
+  function phoneBook(cmd) {
+
+    var arr = cmd.split(" ");
+    switch (arr[0]) {
+      case "ADD":
+        return add(arr);
+      case "REMOVE_PHONE":
+        return remove(arr);
+      case "SHOW":
+        return show();
+    }
+
+    function add(arr) {
+
+      if (!book.hasOwnProperty(arr[1])) {
+        book[arr[1]] = [].concat(arr[2].split(","));
+      } else {
+        book[arr[1]] = book[arr[1]].concat(arr[2].split(","));
+      }
+    }
+
+    function remove(arr) {
+      a = Object.keys(book);
+      for (var i = 0; i < a.length; i++) {
+        if (book[a[i]].indexOf(arr[1]) !== -1) {
+          book[a[i]].splice(book[a[i]].indexOf(arr[1]), 1);
+          return true;
+        }
+      }
+      return false;
+    }
+  }
+
+  function show() {
+    arr = [];
+    str = "";
+    a = Object.keys(book);
+    for (var i = 0; i < a.length; i++) {
+      if (book[a[i]].length === 0) {
+        continue;
+      }
+      str = a[i] + ": " + book[a[i]].join(", ");
+      arr.push(str);
+    }
+    console.log(arr.sort());
+    return arr.sort();
+  }
+  // Failed tests: После команд "ADD Ivan 555,666; ADD Alex 777; ADD Alex 333; REMOVE_PHONE 555; REMOVE_PHONE 666; SHOW",
+  // ожидается результат: ["Alex: 777, 333"]
+  phoneBook('ADD Ivan 555,666');
+  phoneBook('ADD Alex 777');
+  phoneBook('ADD Alex 333');
+  phoneBook('REMOVE_PHONE 555');
+  phoneBook('REMOVE_PHONE 666');
+  phoneBook('SHOW');
+  // phoneBook('REMOVE_PHONE 555-10-03');
+  // phoneBook('ADD Alex 555-20-01');
+  // phoneBook('SHOW');
+  // phoneBook('REMOVE_PHONE 555-20-01');
+  // phoneBook('SHOW');
+</script>
+</body>
+</html>

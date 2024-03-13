@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function f(tweet) {
+    res = [];
+    arr = tweet.split(" ")
+      .forEach(isTweet);
+
+    function isTweet(i) {
+      if (i.startsWith("#")) {
+        res.push(i.slice(1));
+      }
+    }
+
+    console.log(res.join(", ")) ;
+  };
+
+  f('Прохожу курс на #coursera по #javascript')
+</script>
+</body>
+</html>

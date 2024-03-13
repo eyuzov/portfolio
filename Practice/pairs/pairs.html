@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pairs</title>
+    <style>
+        .main{
+            display: flex;
+            font-size: 20px;
+        }
+        #container {
+            background-color: darkblue;
+            width: 1500px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .card {
+            margin: 5px;
+            background: url('cards/top.jpg');
+            width: 150px;
+            height: 218px;
+        }
+        #text{
+            width: auto;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main">
+    <div id="container"></div>
+    <div id="text"></div>
+</div>
+
+<script src="pairs.js"></script>
+<script>
+  window.onload = () => pairs.init();
+</script>
+</body>
+</html>

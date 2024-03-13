@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style/style_blog.css" />
+  </head>
+  <body>
+    <div class="content">
+      <header>
+        <div class="header-left">
+          <img src="img/Logo.svg" alt="" /><span>Interno</span>
+        </div>
+        <div class="header-right">
+          <ul class="header-right__menu">
+            <a href="index.html"><li>Home</li></a>
+            <a href="blog_details.html"><li>Project</li></a>
+            <a href="blog.html"><li>Blog</li></a>
+          </ul>
+        </div>
+      </header>
+    </div>
+    <div class="banner">
+      <div class="content">
+        <div class="banner-text">
+          <h2>Articles & News</h2>
+          <p>Home / Blog</p>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <article>
+        <h1>Latest Post</h1>
+        <div class="article-container_flex">
+          <img src="img/article_banner.png" alt="kitchen" />
+          <div class="article-container_flex__wrap">
+            <div class="article-container_flex__text">
+              <h3>Low Cost Latest Invented Interior Designing Ideas</h3>
+              <p>
+                Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae
+                turpis dignissim maximus.posuere in. Contrary to popular belief.
+                Lorem Ipsum is not simply random text. It has roots in a piece
+                of classica.
+              </p>
+            </div>
+            <div class="article-container_flex__link">
+              <p>26 December,2022</p>
+              <img src="img/arrow.png" alt="" />
+            </div>
+          </div>
+        </div>
+        <section>
+          <h1>Articles & News</h1>
+          <div id="app">
+            <div class="article-container">
+              <div
+                v-for="item in article"
+                :key="index"
+                class="article-container_flex__section"
+              >
+                <img :src="item.imgUrl" alt="room image" />
+                <h3>{{ item.title }}</h3>
+                <div class="article-container_flex__link">
+                  <p>{{ item.date }}</p>
+                  <img src="img/arrow.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="pagination">
+          <a href="#">01</a>
+          <a href="#">02</a>
+          <a href="#">03</a>
+          <a href="#">></a>
+        </div>
+      </article>
+      <footer>
+        <div class="footer_title">
+          <div class="footer_title-wrap">
+            <img src="img/Logo.svg" alt="logo" />
+            <h2>Interno</h2>
+          </div>
+          <p>
+            It is a long established fact that a reader will be distracted
+            lookings.
+          </p>
+        </div>
+        <div class="footer_menu">
+          <h3>Pages</h3>
+          <ul>
+            <li>Home</li>
+            <li>Projects</li>
+            <li>Blog</li>
+          </ul>
+        </div>
+        <div class="footer_contacts">
+          <h3>Contact</h3>
+          <p>
+            55 East Birchwood Ave. Brooklyn, New York 11201 contact@interno.com
+            (123) 456 - 7890
+          </p>
+        </div>
+      </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          article: [
+            {
+              imgUrl: "img/article_img1.png",
+              title: "Let’s Get Solution For Building Construction Work",
+              date: "26 December,2022",
+            },
+            {
+              imgUrl: "img/article_img2.png",
+              title: "Let’s Get Solution For Building Construction Work",
+              date: "26 December,2022",
+            },
+            {
+              imgUrl: "img/article_img3.png",
+              title: "Let’s Get Solution For Building Construction Work",
+              date: "26 December,2022",
+            },
+            {
+              imgUrl: "img/article_img1.png",
+              title: "Let’s Get Solution For Building Construction Work",
+              date: "26 December,2022",
+            },
+            {
+              imgUrl: "img/article_img2.png",
+              title: "Let’s Get Solution For Building Construction Work",
+              date: "26 December,2022",
+            },
+            {
+              imgUrl: "img/article_img3.png",
+              title: "Let’s Get Solution For Building Construction Work",
+              date: "26 December,2022",
+            },
+          ],
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+[
+  {
+    "id": 2,
+    "author": "Ivan",
+    "date": "12:11:00 12/10.2018",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aperiam dolore doloremque dolorum eligendi exercitationem maiores molestiae odio placeat quae qui quibusdam quos rem repudiandae, vel velit vero voluptates.",
+    "accepted": 1
+  },
+  {
+    "id": 1,
+    "author": "Ivan",
+    "date": "12:10:00 11/10.2018",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aperiam dolore doloremque dolorum eligendi exercitationem maiores molestiae odio placeat quae qui quibusdam quos rem repudiandae, vel velit vero voluptates.",
+    "accepted": 0
+  },
+  {
+    "id": 11,
+    "author": "Ivan",
+    "date": "12:14:00 15/10.2018",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aperiam dolore doloremque dolorum eligendi exercitationem maiores molestiae odio placeat quae qui quibusdam quos rem repudiandae, vel velit vero voluptates.",
+    "accepted": 0
+  },
+  {
+    "id": 7,
+    "author": "Ivan",
+    "date": "12:14:00 15/10.2018",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aperiam dolore doloremque dolorum eligendi exercitationem maiores molestiae odio placeat quae qui quibusdam quos rem repudiandae, vel velit vero voluptates.",
+    "accepted": 0
+  },
+  {
+    "id": 3,
+    "author": "Ivan",
+    "date": "12:12:00 13/10.2018",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aperiam dolore doloremque dolorum eligendi exercitationem maiores molestiae odio placeat quae qui quibusdam quos rem repudiandae, vel velit vero voluptates.",
+    "accepted": 1
+  },
+  {
+    "id": 4,
+    "author": "Ivan",
+    "date": "12:13:00 14/10.2018",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aperiam dolore doloremque dolorum eligendi exercitationem maiores molestiae odio placeat quae qui quibusdam quos rem repudiandae, vel velit vero voluptates.",
+    "accepted": 1
+  },
+  {
+    "id": 5,
+    "author": "Ivan",
+    "date": "12:14:00 15/10.2018",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aperiam dolore doloremque dolorum eligendi exercitationem maiores molestiae odio placeat quae qui quibusdam quos rem repudiandae, vel velit vero voluptates.",
+    "accepted": 0
+  }
+]

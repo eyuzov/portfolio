@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table,
+      tr,
+      td {
+        border: solid black 1px;
+      }
+      .remove-btn-none {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tbody>
+        <tr class="head">
+          <td>"id"</td>
+          <td>"name"</td>
+          <td>"time"</td>
+          <td>"maxParticipants"</td>
+          <td>"currentParticipants"</td>
+        </tr>
+      </tbody>
+    </table>
+    <script src="data.js"></script>
+    <script>
+      const div = document.querySelector("tbody");
+
+      const data = JSON.parse(dataLines);
+      data.forEach((element) => {
+        trElem = document.createElement("tr");
+        tdElem = document.createElement("td");
+        tdElem.textContent = element.id;
+        tdElem.classList.add("td-id");
+        trElem.append(tdElem);
+        tdElem = document.createElement("td");
+        tdElem.textContent = element.name;
+        tdElem.classList.add("td-name");
+        trElem.append(tdElem);
+        tdElem = document.createElement("td");
+        tdElem.textContent = element.time;
+        tdElem.classList.add("td-time");
+        trElem.append(tdElem);
+        tdElem = document.createElement("td");
+        tdElem.textContent = element.maxParticipants;
+        tdElem.classList.add("td-maxPart");
+        trElem.append(tdElem);
+        tdElem = document.createElement("td");
+        tdElem.textContent = element.currentParticipants;
+        tdElem.classList.add("td-currPart");
+        trElem.append(tdElem);
+        addBtn = document.createElement("button");
+        addBtn.textContent = "Записаться";
+        addBtn.classList.add("add-btn");
+        trElem.append(addBtn);
+        removeBtn = document.createElement("button");
+        removeBtn.textContent = "Отменить запись";
+        removeBtn.classList.add("remove-btn");
+        removeBtn.classList.add("remove-btn-none");
+        trElem.append(removeBtn);
+        trElem.classList.add("line");
+        div.append(trElem);
+      });
+
+      const btnArray = document.querySelectorAll(".add-btn");
+      btnArray.forEach((element) => {
+        element.addEventListener("click", (e) => {
+          const currPartForChange = e.target.parentNode.children[4];
+          const maxPartForChange = e.target.parentNode.children[3];
+          if (
+            Number(currPartForChange.textContent) ===
+            Number(maxPartForChange.textContent)
+          ) {
+            e.target.disabled = true;
+          } else {
+            currPartForChange.textContent =
+              Number(currPartForChange.textContent) + 1;
+            e.target.parentNode.children[6].classList.remove("remove-btn-none");
+            e.target.parentNode.children[6].disabled = false;
+          }
+        });
+      });
+
+      const removeBtnArray = document.querySelectorAll(".remove-btn");
+      removeBtnArray.forEach((element) => {
+        element.addEventListener("click", (e) => {
+          const currPartForChange = e.target.parentNode.children[4];
+          const maxPartForChange = e.target.parentNode.children[3];
+          if (Number(currPartForChange.textContent) === 0) {
+            e.target.disabled = true;
+          } else {
+            currPartForChange.textContent =
+              Number(currPartForChange.textContent) - 1;
+
+            e.target.parentNode.children[5].disabled = false;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

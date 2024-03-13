@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+  // Failed tests: При добавлении 01 мин. к 00:00 получится 00:01,
+  //   При добавлении 2880 мин. к 15:00 получится 15:00
+
+  function s(hours, minutes, interval) {
+    var newHours, newMinutes, tmpH, tmpM;
+
+    if (minutes + interval < 60) {
+      tmpH = 0;
+      tmpM = minutes + interval;
+      tmpM = tmpM < 10 ? "0" + tmpM : tmpM;
+    } else if (minutes + interval === 60) {
+      tmpH = 1;
+      tmpM = 0 + "0";
+    } else {
+      tmpH = Math.floor((minutes + interval) / 60);
+
+      tmpM = (minutes + interval) % 60;
+      tmpM = tmpM < 10 ? "0" + tmpM : tmpM;
+    }
+
+    newHours = hours + tmpH;
+    newMinutes = tmpM;
+    if (newHours > 23) {
+      newHours = newHours - (24 * Math.floor(newHours/24));
+    }
+    if (newHours < 10) {
+      newHours = "0" + newHours;
+    }
+    return newHours + ":" + newMinutes;
+
+  }
+
+  console.log(s(15, 00, 2880));
+</script>
+</body>
+</html>

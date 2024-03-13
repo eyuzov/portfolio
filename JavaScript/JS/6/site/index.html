@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Catalog</title>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+      integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+
+  <body>
+    <!--********************HEADER END*********************************-->
+
+    <!--********************NAV START*********************************-->
+
+    <!--********************MAIN START*********************************-->
+
+    <div class="content">
+      <div class="container">
+        <!--********************Fetured Items START*********************************-->
+
+        <div class="fetured">
+          <div class="fetured-text">
+            <h2>Fetured Items</h2>
+            <h6>Shop for items based on what we featured in this week</h6>
+          </div>
+        </div>
+
+        <div class="fetured-items">
+          <div class="add_flex">
+            <a href="#" class="add">Add to Cart</a>
+          </div>
+        </div>
+        <!--********************Fetured Items END*********************************-->
+      </div>
+    </div>
+    <!--********************MAIN END*********************************-->
+    <script src="data.js"></script>
+    <script>
+      const rootElem = document.querySelector(".fetured-items");
+      const data = JSON.parse(dataInfo);
+      data.forEach((element) => {
+        const wrap = document.createElement("div");
+        wrap.classList.add("one");
+
+        const imgElem = document.createElement("img");
+        imgElem.src = element.src;
+        imgElem.alt = "t-shirt";
+
+        const h3Elem = document.createElement("h3");
+        h3Elem.textContent = element.title;
+
+        const pElem = document.createElement("p");
+        pElem.textContent = element.desc;
+
+        const h4Elem = document.createElement("h4");
+        h4Elem.textContent = element.price;
+
+        wrap.append(imgElem);
+        wrap.append(h3Elem);
+        wrap.append(pElem);
+        wrap.append(h4Elem);
+        rootElem.append(wrap);
+      });
+      console.log(data);
+    </script>
+  </body>
+</html>

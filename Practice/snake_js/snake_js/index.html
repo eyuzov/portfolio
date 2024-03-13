@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>snake</title>
+    <script src="snake.js"></script>
+    <style>
+
+        #table {
+            border-collapse: collapse;
+        }
+
+        td {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #000;
+        }
+
+        .food {
+            background: #0f0;
+        }
+
+        .snake {
+            background: grey;
+        }
+
+        .snake-head {
+            background: red;
+        }
+
+        #game {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        input {
+            width: 100px;
+            height: 40px;
+            margin: 10px 50px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #score {
+            width: 200px;
+            height: auto;
+            background: darkgreen;
+            font-size: 40px;
+            text-align: center;
+        }
+
+        select {
+            width: 250px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="hide" id="game">
+    <table id="table"></table>
+    <form action="#" id="form">
+        <input type="button" id="start" value="START">
+        <input type="button" id="pause" value="PAUSE">
+        <input type="button" id="new" value="NEW">
+        <label for="form" id="score">0</label>
+    </form>
+</div>
+
+<script>
+  window.onload = () => snake.init(15, 15, 1000);
+
+
+</script>
+</body>
+
+</html>

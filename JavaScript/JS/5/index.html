@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="content"></div>
+    <script src="data.js"></script>
+    <script>
+      const data = JSON.parse(dataInfo);
+
+      const contentElem = document.querySelector(".content");
+
+      data.forEach((element) => {
+        const h1Elem = document.createElement("h1");
+        h1Elem.textContent = element.name;
+
+        const pElem = document.createElement("p");
+        pElem.textContent = element.desc;
+
+        const imgElem = document.createElement("img");
+        imgElem.src = element.url;
+        imgElem.alt = "Some cat";
+
+        contentElem.append(h1Elem);
+        contentElem.append(pElem);
+        contentElem.append(imgElem);
+      });
+    </script>
+  </body>
+</html>

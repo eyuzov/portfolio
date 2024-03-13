@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .myElement {
+        width: 300px;
+        height: auto;
+        border: 1px solid #000;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        align-content: flex-start;
+        align-items: center;
+      }
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div id="myElement"></div> -->
+    <script>
+      //*****************************************************************************************
+      //   Задача
+
+      // Необходимо получить список всех пользователей с помощью бесплатного API (https://jsonplaceholder.typicode.com/users)
+      // и отобразить их на странице. Пользователь должен иметь возможность удалить любого пользователя из списка.
+      let counter = 10;
+      async function getUserData() {
+        const response = await fetch(
+          `https://jsonplaceholder.typicode.com/users`
+        );
+        const user = await response.json();
+        const d = await user;
+        return d;
+      }
+
+      async function main() {
+        try {
+          const container = document.createElement("div");
+          container.classList.add("container");
+
+          const users = await getUserData();
+
+          users.forEach((element) => {
+            const btnRemove = document.createElement("button");
+            btnRemove.classList.add("btn-remove");
+            btnRemove.textContent = "REMOVE";
+            const flexElem = document.createElement("div");
+            flexElem.classList.add("myElement");
+            const nameElem = document.createElement("h3");
+            const emailElem = document.createElement("p");
+            nameElem.textContent = element.name;
+            emailElem.textContent = element.email;
+            flexElem.appendChild(nameElem);
+            flexElem.appendChild(emailElem);
+            flexElem.appendChild(btnRemove);
+            container.appendChild(flexElem);
+            document.body.appendChild(container);
+          });
+
+          const btnRemove = document.querySelectorAll(".btn-remove");
+          btnRemove.forEach((element) => {
+            element.addEventListener("click", (e) => {
+              e.target.closest(".myElement").remove();
+              counter--;
+              if (counter === 0) {
+                document.querySelector(".container").remove();
+                main();
+              }
+            });
+          });
+        } catch (error) {
+          console.log(error.message);
+        }
+      }
+
+      main();
+      //*****************************************************************************************
+
+      //   async function getUserData(id) {
+      //     try {
+      //       const response = await fetch(
+      //         `https://api.github.com/users/${id}`
+      //       );
+      //       if (response.status === 200) {
+      //         const user = await response.json();
+      //         return user;
+      //       }
+      //     } catch (error) {
+      //       console.log(error.message);
+      //     }
+      //   }
+
+      //   async function getUser() {
+      //     const id = "octocat";
+      //     const user = await getUserData(id);
+      //     console.log(user);
+      //   }
+      //   getUser();
+      //*********************************************************
+      //   async function postJSON(data) {
+      //     const response = await fetch(
+      //       "https://example.com/profile",
+      //       {
+      //         method: "POST", // or 'PUT'
+      //         headers: {
+      //           "Content-Type": "application/json",
+      //         },
+      //         body: JSON.stringify(data),
+      //       }
+      //     )
+      //       .then(() => {
+      //         const result = response.json();
+      //         console.log("Success:", result);
+      //       })
+      //       .catch((err) => {
+      //         console.log(err.message);
+      //       });
+      //   }
+
+      //   const data = {
+      //     name: "John Smith",
+      //     age: 30,
+      //     email: "john@example.com",
+      //   };
+      //   postJSON(data);
+      //*********************************************************
+      //   function changeStyleDelayed(elem, delay) {
+      //     const changeElem =
+      //       document.getElementById("myElement");
+      //     setTimeout(() => {
+      //       changeElem.style =
+      //         "background-color: red;";
+      //     }, delay);
+      //   }
+      //   changeStyleDelayed("myElement", 2000); // Через 2 секунды изменяет стиль элемента с id 'myElement'"
+    </script>
+  </body>
+</html>

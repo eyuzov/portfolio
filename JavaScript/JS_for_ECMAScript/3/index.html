@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   class Employee {
+      //     constructor(name) {
+      //       this.name = name;
+      //     }
+      //     displayInfo() {
+      //       console.log(this.name);
+      //     }
+      //   }
+
+      //   class Manager extends Employee {
+      //     constructor(name, dept) {
+      //       super(name);
+      //       this.dept = dept;
+      //     }
+      //     displayInfo() {
+      //       console.log(this.name, this.dept);
+      //     }
+      //   }
+
+      //   const employee = new Employee("John Smith");
+      //   employee.displayInfo();
+
+      //   const manager = new Manager(
+      //     "Jane Doe",
+      //     "Sales"
+      //   );
+      //   manager.displayInfo();
+      // *****************************************************2*******************************************************************
+
+      class Order {
+        constructor(orderNumber) {
+          this.orderNumber = orderNumber;
+        }
+        products = [];
+        addProduct(product) {
+          this.products.push(product);
+        }
+        getTotalPrice() {
+          let sum = 0;
+          sum = this.products.reduce(
+            (acc, item) => acc + item.price,
+            0
+          );
+          return sum;
+        }
+      }
+
+      class Product {
+        constructor(name, price) {
+          this.name = name;
+          this.price = price;
+        }
+      }
+
+      const order = new Order(12345);
+
+      const product1 = new Product("Phone", 200);
+      order.addProduct(product1);
+
+      const product2 = new Product(
+        "Headphones",
+        100
+      );
+      order.addProduct(product2);
+
+      console.log(order.getTotalPrice());
+    </script>
+  </body>
+</html>

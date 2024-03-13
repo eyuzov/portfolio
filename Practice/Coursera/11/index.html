@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+  var parallel = function (operations, callback) {
+    var promises = [];
+
+    operations.forEach(operation => {
+      let promise = new Promise(function (resolve, reject) {
+
+        let next = function (err, ms) {
+          if (err !== null) {
+            reject(err);
+          } else {
+            resolve(ms);
+          }
+        };
+        operation(next);
+      });
+
+      promises.push(promise);
+    });
+
+
+    Promise.all(promises)
+      .then((res, err) => {
+        console.log(null, res);
+        // callback(res, err)
+      })
+      .catch((res, err) => {
+        // callback(res, err)
+        console.log(res);
+        })
+
+
+  };
+
+  parallel(
+    [
+      // Операция, которая выполняется 500ms
+      function (next) {
+        setTimeout(function () {
+          next(null, '500ms');
+        }, 500);
+      },
+
+      // Операция, которая завершается с ошибкой через 10ms
+      function (next) {
+        setTimeout(function () {
+          next('ERROR');
+        }, 10);
+      },
+
+      // Операция, которая выполняется 200ms
+      function (next) {
+        setTimeout(function () {
+          next(null, '200ms');
+        }, 200);
+      }
+    ],
+    function (error, results) {
+      assert.deepEqual(error, 'ERROR');
+      assert.equal(results, null);
+
+      completeTest();
+    }
+  );
+</script>
+</body>
+</html>

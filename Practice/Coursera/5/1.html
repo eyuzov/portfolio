@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function f(t) {
+    arr = [];
+    t.filter(filt);
+
+    function filt(i) {
+      if (arr.indexOf(i.toLowerCase()) === -1) {
+        arr.push(i.toLowerCase());
+      }
+
+    }
+
+    return arr.join(", ");
+    console.log(arr.join(", "));
+  }
+
+  f(['web', 'coursera', 'JavaScript', 'Coursera', 'script', 'programming']);
+</script>
+</body>
+</html>
